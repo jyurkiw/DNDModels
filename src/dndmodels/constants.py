@@ -30,7 +30,7 @@ class Resistance(StrEnum):
     VULNERABILITY = "Vulnerability"
 
 class AttackerConstants(StrEnum):
-    ATTACKER = "attacker"
+    ATTACKERS = "attackers"
     PROFICIENCY = "proficiency"
     STAT_BONUS = "stat_bonus"
     ENCHANTMENT = "enchantment"
