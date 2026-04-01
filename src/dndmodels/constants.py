@@ -28,3 +28,16 @@ class Resistance(StrEnum):
     RESISTANCE = "Resistance"
     IMMUNITY = "Immunity"
     VULNERABILITY = "Vulnerability"
+
+class AttackerConstants(StrEnum):
+    ATTACKER = "attacker"
+    PROFICIENCY = "proficiency"
+    STAT_BONUS = "stat_bonus"
+    ENCHANTMENT = "enchantment"
+    SITUATION = "situation"
+
+class DefenderConstants(StrEnum):
+    DEFENDER = "defender"
+    ARMOR_CLASS = "armor_class"
+    RESISTANCE = "resistance"
+    RESISTANCE_TYPE = "resistance_type"
