@@ -23,6 +23,7 @@ class DamageEvent(object):
 
 @dataclass(frozen=True)
 class AttackActor(object):
+    attacker_name: str = ""
     proficiency: int = 2
     stat_bonus: int = 0
     enchantment: int = 0
