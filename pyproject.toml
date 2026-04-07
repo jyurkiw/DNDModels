@@ -5,6 +5,10 @@ build-backend = "hatchling.build"
 [project]
 name = "dndmodels"
 version = "0.1.0"
+description = "D&D 5e combat modeling library"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
 description = "Basic modeling for 5e"
 requires-python = ">=3.13"
 dependencies = []
