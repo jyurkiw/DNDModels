@@ -8,13 +8,14 @@ version = "0.1.0"
 description = "D&D 5e combat modeling library"
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.11"
-description = "Basic modeling for 5e"
 requires-python = ">=3.13"
 dependencies = []
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/dndmodels"]
+packages = ["dndmodels"]
+
+[tool.hatch.build]
+dev-mode-dirs = ["src"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

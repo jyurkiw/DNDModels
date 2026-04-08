@@ -14,5 +14,5 @@ DefenseActor = _DefenseActor
 Situation = _Situation
 DamageType = _DamageType
 Resistance = _Resistance
-AttackerConstants= _AttackerConstants
-DefenderConstants= _DefenderConstants
+AttackerConstants = _AttackerConstants
+DefenderConstants = _DefenderConstants
