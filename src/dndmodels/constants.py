@@ -1,5 +1,23 @@
+from abc import abstractclassmethod
 from enum import StrEnum
 
+
+class BaseStats(StrEnum):
+    STRENGTH = "strength"
+    DEXTERITY = "dexterity"
+    CONSTITUTION = "constitution"
+    INTELLIGENCE = "intelligence"
+    WISDOM = "wisdom"
+    CHARISMA = "charisma"
+
+class AttackEvent(StrEnum):
+    EVENT_TYPE = "event_type"
+    NUM_TARGETS = "num_targets"
+    DAMAGE_CODE = "damage_code"
+    DAMAGE_TYPE = "damage_type"
+    HIT_BONUS = "hit_bonus"
+    SAVE_DC = "save_dc"
+    SAVE_TYPE = "save_type"
 
 class Situation(StrEnum):
     NORMAL = "Normal"
