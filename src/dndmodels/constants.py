@@ -2,26 +2,19 @@ from enum import StrEnum
 
 
 class BaseStat(StrEnum):
-    STRENGTH = "strength"
-    DEXTERITY = "dexterity"
-    CONSTITUTION = "constitution"
-    INTELLIGENCE = "intelligence"
-    WISDOM = "wisdom"
-    CHARISMA = "charisma"
+    STRENGTH = "strength_bonus"
+    DEXTERITY = "dexterity_bonus"
+    CONSTITUTION = "constitution_bonus"
+    INTELLIGENCE = "intelligence_bonus"
+    WISDOM = "wisdom_bonus"
+    CHARISMA = "charisma_bonus"
 
-class AttackEvent(StrEnum):
-    EVENT_TYPE = "event_type"
-    NUM_TARGETS = "num_targets"
-    DAMAGE_CODE = "damage_code"
-    DAMAGE_TYPE = "damage_type"
-    HIT_BONUS = "hit_bonus"
-    SAVE_DC = "save_dc"
-    SAVE_TYPE = "save_type"
 
 class SaveEffect(StrEnum):
     HALF_DAMAGE = "half_damage"
     NEGATE_FULL = "negate_full"
     NEGATE_PARTIAL = "negate_partial"
+
 
 class Situation(StrEnum):
     NORMAL = "Normal"
@@ -51,12 +44,14 @@ class Resistance(StrEnum):
     IMMUNITY = "Immunity"
     VULNERABILITY = "Vulnerability"
 
+
 class AttackerConstants(StrEnum):
     ATTACKERS = "attackers"
     PROFICIENCY = "proficiency"
     STAT_BONUS = "stat_bonus"
     ENCHANTMENT = "enchantment"
     SITUATION = "situation"
+
 
 class DefenderConstants(StrEnum):
     DEFENDER = "defender"

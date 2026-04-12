@@ -1,51 +1,57 @@
 from dataclasses import dataclass
-from abc import ABC, abstractmethod
+from typing import Optional
+from dataclasses_json import dataclass_json
 
-from src.dndmodels import DamageType
-from src.dndmodels.constants import BaseStat, SaveEffect
+from .constants import BaseStat, SaveEffect, DamageType
 
 
 class CombatException(Exception):
     pass
 
+
+@dataclass_json
 @dataclass(frozen=True)
-class AbstractAttackEvent(ABC):
-    num_targets: int
-    damage_code: str
-    damage_type: DamageType
+class AbstractAttackEvent(object):
+    name: str = ""
+    damage_code: str = "1d6"
+    damage_type: DamageType = DamageType.SLASHING
+    misc_damage_bonus: int = 0
 
 
+@dataclass_json
 @dataclass(frozen=True)
 class HitAttackEvent(AbstractAttackEvent):
-    hit_bonus: int
+    bonus_stat: BaseStat = BaseStat.STRENGTH
+    enchantment_bonus: int = 0
 
 
+@dataclass_json
 @dataclass(frozen=True)
 class SaveAttackEvent(AbstractAttackEvent):
-    save_dc: int
-    save_stat: BaseStat
-    save_effect: SaveEffect
+    save_dc: int = 10
+    save_stat: BaseStat = BaseStat.DEXTERITY
+    save_effect: SaveEffect = SaveEffect.NEGATE_FULL
 
 
-
+@dataclass_json
 @dataclass(frozen=True)
-class AbstractCombatantModel(ABC):
-    name: str
+class AbstractCombatantModel(object):
+    name: str = ""
 
-    strength: int
-    dexterity: int
-    constitution: int
-    intelligence: int
-    wisdom: int
-    charisma: int
+    strength_bonus: int = 0
+    dexterity_bonus: int = 0
+    constitution_bonus: int = 0
+    intelligence_bonus: int = 0
+    wisdom_bonus: int = 0
+    charisma_bonus: int = 0
 
-    proficiency_bonus: str
-    initiative: int
+    proficiency_bonus: int = 2
+    #initiative_bonus: int = 2
 
-    hit_points: int
-    armor_class: str
+    #hit_points: int = 0
+    armor_class: int = 10
 
-    attacks: list[AbstractAttackEvent]
+    attacks: Optional[list[HitAttackEvent|SaveAttackEvent]] = None
 
     def get_stat_bonus(self, stat: str) -> int:
         if stat not in BaseStat._value2member_map_:
@@ -53,6 +59,7 @@ class AbstractCombatantModel(ABC):
         return getattr(self, stat)
 
 
+@dataclass_json
 @dataclass(frozen=True)
 class CombatantModel(AbstractCombatantModel):
     pass
