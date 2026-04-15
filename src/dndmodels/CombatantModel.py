@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional
 from dataclasses_json import dataclass_json
 
@@ -21,6 +21,8 @@ class AbstractAttackEvent(object):
 @dataclass_json
 @dataclass(frozen=True)
 class HitAttackEvent(AbstractAttackEvent):
+    crit_damage_code: str = "1d6"
+    crit_numbers: set[int] = field(default_factory=lambda: {20})
     bonus_stat: BaseStat = BaseStat.STRENGTH
     enchantment_bonus: int = 0
 
